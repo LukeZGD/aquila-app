@@ -8,9 +8,22 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "exploit/exploit.h"
+#import "exploit/patches.h"
+//#import "exploit/install.h"
 
 int main(int argc, char * argv[]) {
-    run_exploit();
+    if (run_exploit() != 0) {
+        print_log("[-] exploit failed\n");
+        usleep(100000);
+        return -1;
+    }
+
+    if (patch_kernel() != 0) {
+        print_log("[-] failed to patch kernel\n");
+        return -1;
+    }
+
+    //install_jailbreak();
     return 0;
     NSString * appDelegateClassName;
     @autoreleasepool {
