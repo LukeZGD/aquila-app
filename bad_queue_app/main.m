@@ -7,8 +7,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import "exploit/exploit.h"
-#import "exploit/patches.h"
+#include "exploit/exploit.h"
+#include "exploit/memory.h"
+#include "exploit/patches.h"
 #include <copyfile.h>
 #include <sys/mount.h>
 #include <sys/stat.h>
@@ -52,7 +53,7 @@ int main(int argc, char * argv[]) {
     if (copyfile(get_file_path("resource/tar"), "/bin/tar", NULL, COPYFILE_ALL) != 0) return -1;
     if (copyfile(get_file_path("resource/launchd.conf"), "/private/etc/launchd.conf", NULL, COPYFILE_ALL) != 0) return -1;
     mkdir("/private/var/aquila", 0755);
-    if (copyfile(get_file_path("resource/_libmis.dylib"), "/private/var/aquila/_libmis.dylib", NULL, COPYFILE_ALL) != 0) return -1;
+    if (copyfile(get_file_path("resource/libmis"), "/private/var/aquila/_libmis.dylib", NULL, COPYFILE_ALL) != 0) return -1;
     if (copyfile(get_file_path("resource/bootstrap.tar"), "/private/var/aquila/bootstrap.tar", NULL, COPYFILE_ALL) != 0) return -1;
     if (copyfile(get_file_path("resource/aquila"), "/private/var/aquila/aquila", NULL, COPYFILE_ALL) != 0) return -1;
     if (copyfile(get_file_path("resource/installer"), "/private/var/aquila/installer", NULL, COPYFILE_ALL) != 0) return -1;
