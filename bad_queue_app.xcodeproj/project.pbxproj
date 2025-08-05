@@ -12,12 +12,11 @@
 		2FD5EF5D2DF46CEC006717F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5EF5C2DF46CEC006717F9 /* main.m */; };
 		2FD5EF6C2DF46DE3006717F9 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5EF642DF46DE3006717F9 /* util.c */; };
 		2FD5EF6D2DF46DE3006717F9 /* memory.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5EF672DF46DE3006717F9 /* memory.c */; };
-		2FD5EF6E2DF46DE3006717F9 /* hid.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5EF682DF46DE3006717F9 /* hid.c */; };
-		2FD5EF6F2DF46DE3006717F9 /* exploit.c in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5EF6A2DF46DE3006717F9 /* exploit.c */; };
 		2FD5EF712DF46EE0006717F9 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD5EF702DF46EE0006717F9 /* IOKit.framework */; };
 		E31A1CD92E3B7E3E00CB2DA0 /* patchfinder.c in Sources */ = {isa = PBXBuildFile; fileRef = E31A1CD52E3B7E3E00CB2DA0 /* patchfinder.c */; };
 		E31A1CDA2E3B7E3E00CB2DA0 /* patches.c in Sources */ = {isa = PBXBuildFile; fileRef = E31A1CD82E3B7E3E00CB2DA0 /* patches.c */; };
 		E3B848AA2E3BB55B00ACA8BB /* resource in Resources */ = {isa = PBXBuildFile; fileRef = E3B848A92E3BB55B00ACA8BB /* resource */; };
+		E3D2A4FC2E40789400864CE0 /* oob_entry.c in Sources */ = {isa = PBXBuildFile; fileRef = E3D2A4FB2E40789400864CE0 /* oob_entry.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +27,8 @@
 		2FD5EF5B2DF46CEC006717F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FD5EF5C2DF46CEC006717F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2FD5EF642DF46DE3006717F9 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
-		2FD5EF652DF46DE3006717F9 /* exploit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exploit.h; sourceTree = "<group>"; };
-		2FD5EF662DF46DE3006717F9 /* hid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hid.h; sourceTree = "<group>"; };
 		2FD5EF672DF46DE3006717F9 /* memory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = memory.c; sourceTree = "<group>"; };
-		2FD5EF682DF46DE3006717F9 /* hid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hid.c; sourceTree = "<group>"; };
 		2FD5EF692DF46DE3006717F9 /* memory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memory.h; sourceTree = "<group>"; };
-		2FD5EF6A2DF46DE3006717F9 /* exploit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = exploit.c; sourceTree = "<group>"; };
 		2FD5EF6B2DF46DE3006717F9 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
 		2FD5EF702DF46EE0006717F9 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IOKit.framework; sourceTree = "<group>"; };
 		E31A1CD52E3B7E3E00CB2DA0 /* patchfinder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = patchfinder.c; sourceTree = "<group>"; };
@@ -41,6 +36,8 @@
 		E31A1CD72E3B7E3E00CB2DA0 /* patches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = patches.h; sourceTree = "<group>"; };
 		E31A1CD82E3B7E3E00CB2DA0 /* patches.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = patches.c; sourceTree = "<group>"; };
 		E3B848A92E3BB55B00ACA8BB /* resource */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = resource; path = bad_queue_app/resource; sourceTree = SOURCE_ROOT; };
+		E3D2A4FA2E40789400864CE0 /* oob_entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = oob_entry.h; sourceTree = "<group>"; };
+		E3D2A4FB2E40789400864CE0 /* oob_entry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = oob_entry.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,19 +85,17 @@
 		2FD5EF632DF46DDC006717F9 /* exploit */ = {
 			isa = PBXGroup;
 			children = (
-				2FD5EF6A2DF46DE3006717F9 /* exploit.c */,
-				2FD5EF652DF46DE3006717F9 /* exploit.h */,
-				2FD5EF682DF46DE3006717F9 /* hid.c */,
-				2FD5EF662DF46DE3006717F9 /* hid.h */,
 				2FD5EF672DF46DE3006717F9 /* memory.c */,
 				2FD5EF692DF46DE3006717F9 /* memory.h */,
-				2FD5EF642DF46DE3006717F9 /* util.c */,
-				2FD5EF6B2DF46DE3006717F9 /* util.h */,
+				E3D2A4FB2E40789400864CE0 /* oob_entry.c */,
+				E3D2A4FA2E40789400864CE0 /* oob_entry.h */,
 				E31A1CD82E3B7E3E00CB2DA0 /* patches.c */,
 				E31A1CD72E3B7E3E00CB2DA0 /* patches.h */,
 				E31A1CD52E3B7E3E00CB2DA0 /* patchfinder.c */,
 				E31A1CD62E3B7E3E00CB2DA0 /* patchfinder.h */,
 				E3B848A92E3BB55B00ACA8BB /* resource */,
+				2FD5EF642DF46DE3006717F9 /* util.c */,
+				2FD5EF6B2DF46DE3006717F9 /* util.h */,
 			);
 			path = exploit;
 			sourceTree = "<group>";
@@ -176,12 +171,11 @@
 			files = (
 				2FD5EF6C2DF46DE3006717F9 /* util.c in Sources */,
 				2FD5EF6D2DF46DE3006717F9 /* memory.c in Sources */,
+				E3D2A4FC2E40789400864CE0 /* oob_entry.c in Sources */,
 				E31A1CDA2E3B7E3E00CB2DA0 /* patches.c in Sources */,
 				E31A1CD92E3B7E3E00CB2DA0 /* patchfinder.c in Sources */,
-				2FD5EF6E2DF46DE3006717F9 /* hid.c in Sources */,
 				2FD5EF4C2DF46CEB006717F9 /* AppDelegate.m in Sources */,
 				2FD5EF5D2DF46CEC006717F9 /* main.m in Sources */,
-				2FD5EF6F2DF46DE3006717F9 /* exploit.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +316,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lukezgd.aquila-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -354,7 +348,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lukezgd.aquila-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

