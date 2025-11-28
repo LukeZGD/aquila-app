@@ -13,18 +13,12 @@ On Linux, use [Legacy iOS Kit](https://github.com/LukeZGD/Legacy-iOS-Kit) to sid
 ## Jailbreaking
 
 - The jailbreak process starts immediately when the app is launched.
-- If successful, the device will reboot and display a splash screen saying "Installing jailbreak".
-- Once complete, Cydia should appear on the home screen.
+- If successful, the device will reboot and Cydia should appear on the home screen.
 
 ## Notes
 
 - If the app crashes, the exploit may have failed. Simply try launching it again.
-- The app is only for unjailbroken devices. On already jailbroken devices, the app will crash immediately.
-- To improve success rate:
-    - Open the Compass app and confirm it rotates properly, then retry.
-    - On iPads/iPod touches, try physically rotating the screen (like portrait to landscape) before retrying.
-    - You may also try rebooting the device before retrying.
-- **Important:** Your device must have a working gyroscope/accelerometer to jailbreak with Aquila. This requirement applies to the original Aquila project as well. If your device has faulty sensors, the jailbreak will not work.
+- The app is only for unjailbroken devices. On devices that are already jailbroken, the app will only crash immediately.
 
 ## Supported Devices
 
@@ -32,7 +26,7 @@ All devices that support iOS 6
 
 ## Building
 
-This project is built using Xcode 13.4.1 and macOS Monterey 12.7.6.
+This project is built using Xcode 13.4.1 and macOS Monterey 12.6.
 
 ## Credits
 
