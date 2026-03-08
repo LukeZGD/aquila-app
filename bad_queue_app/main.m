@@ -51,18 +51,16 @@ int main(int argc, char * argv[]) {
     sync();
 
     print_log("[*] Copying Aquila files...\n");
-    if (copyfile(get_file_path("resource/tar"), "/bin/tar", NULL, COPYFILE_ALL) != 0) return -1;
+    mkdir("/private/var/untether", 0755);
+    if (copyfile(get_file_path("resource/tar"), "/private/var/untether/tar", NULL, COPYFILE_ALL) != 0) return -1;
     if (copyfile(get_file_path("resource/launchd.conf"), "/private/etc/launchd.conf", NULL, COPYFILE_ALL) != 0) return -1;
-    mkdir("/private/var/aquila", 0755);
-    if (copyfile(get_file_path("resource/libmis"), "/private/var/aquila/amfi_bypass.dylib", NULL, COPYFILE_ALL) != 0) return -1;
-    if (copyfile(get_file_path("resource/bootstrap.tar"), "/private/var/aquila/bootstrap.tar", NULL, COPYFILE_ALL) != 0) return -1;
-    if (copyfile(get_file_path("resource/truststore.tar"), "/private/var/aquila/truststore.tar", NULL, COPYFILE_ALL) != 0) return -1;
-    if (copyfile(get_file_path("resource/aquila"), "/private/var/aquila/aquila", NULL, COPYFILE_ALL) != 0) return -1;
-    if (copyfile(get_file_path("resource/installer"), "/private/var/aquila/installer", NULL, COPYFILE_ALL) != 0) return -1;
-    if (copyfile(get_file_path("resource/splashscreen.jp2"), "/private/var/aquila/splashscreen.jp2", NULL, COPYFILE_ALL) != 0) return -1;
-    chmod("/private/var/aquila/_libmis.dylib", 0755);
-    chmod("/private/var/aquila/aquila", 0755);
-    chmod("/private/var/aquila/installer", 0755);
+    if (copyfile(get_file_path("resource/libmis"), "/private/var/untether/_.dylib", NULL, COPYFILE_ALL) != 0) return -1;
+    if (copyfile(get_file_path("resource/bootstrap.tar"), "/private/var/untether/Cydia.tar", NULL, COPYFILE_ALL) != 0) return -1;
+    if (copyfile(get_file_path("resource/untether"), "/private/var/untether/untether", NULL, COPYFILE_ALL) != 0) return -1;
+    if (copyfile(get_file_path("resource/dirhelper"), "/usr/libexec/dirhelper", NULL, COPYFILE_ALL) != 0) return -1;
+    chmod("/private/var/untether/tar", 0755);
+    chmod("/private/var/untether/untether", 0755);
+    chmod("/usr/libexec/dirhelper", 0755);
 
     print_log("[*] Done. Rebooting...");
     reboot(0);
