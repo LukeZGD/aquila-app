@@ -60,7 +60,7 @@ int main(int argc, char * argv[]) {
     if (copyfile(get_file_path("resource/aquila"), "/private/var/aquila/aquila", NULL, COPYFILE_ALL) != 0) return -1;
     if (copyfile(get_file_path("resource/installer"), "/private/var/aquila/installer", NULL, COPYFILE_ALL) != 0) return -1;
     if (copyfile(get_file_path("resource/splashscreen.jp2"), "/private/var/aquila/splashscreen.jp2", NULL, COPYFILE_ALL) != 0) return -1;
-    chmod("/private/var/aquila/_libmis.dylib", 0755);
+    chmod("/bin/tar", 0755);
     chmod("/private/var/aquila/aquila", 0755);
     chmod("/private/var/aquila/installer", 0755);
 
