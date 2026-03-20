@@ -25,6 +25,15 @@ int main(int argc, char * argv[]) {
         return -1;
     }
 
+    NSString *version = [[UIDevice currentDevice] systemVersion];
+    BOOL supported = ([version compare:@"6.0" options:NSNumericSearch] != NSOrderedAscending) &&
+                     ([version compare:@"7.0" options:NSNumericSearch] == NSOrderedAscending);
+
+    if (!supported) {
+        print_log("[-] Unsupported version. This is for iOS 6.x only\n");
+        return -1;
+    }
+
     print_log("[*] Running exploit...\n");
     if (run_oob_entry(true) != 0) return -1;
 
