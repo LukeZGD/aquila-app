@@ -23,7 +23,7 @@ int main(int argc, char * argv[]) {
     if (access("/private/var/untether/untether", F_OK) != -1 &&
         access("/private/var/lib/dpkg/status", F_OK) != -1) {
         print_log("[-] Device is already jailbroken and strapped.\n");
-        return -1;
+        //return -1;
     }
 
     NSString *version = [[UIDevice currentDevice] systemVersion];
@@ -68,14 +68,14 @@ int main(int argc, char * argv[]) {
     if (copyfile(get_file_path("resource/dirhelper"), "/usr/libexec/dirhelper", NULL, COPYFILE_ALL) != 0) return -1;
     chmod("/usr/libexec/dirhelper", 0755);
 
-    if (access("/private/var/lib/dpkg/status", F_OK) != -1) {
+    //if (access("/private/var/lib/dpkg/status", F_OK) != -1) {
         unlink("/bin/bash");
         unlink("/usr/share/terminfo/x/xterm-xi");
         if (copyfile(get_file_path("resource/tar"), "/private/var/untether/tar", NULL, COPYFILE_ALL) != 0) return -1;
         if (copyfile(get_file_path("resource/bootstrap.tar"), "/private/var/untether/Cydia.tar", NULL, COPYFILE_ALL) != 0) return -1;
         chmod("/private/var/untether/tar", 0755);
         chmod("/private/var/untether/untether", 0755);
-    }
+    //}
 
     print_log("[*] Done. Rebooting...");
     reboot(0);
