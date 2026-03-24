@@ -20,8 +20,9 @@ char *get_file_path(const char *fileName) {
 }
 
 int main(int argc, char * argv[]) {
-    if (access("/bin/bash", F_OK) != -1) {
-        print_log("[-] Device is already jailbroken.\n");
+    if (access("/private/var/untether/untether", F_OK) != -1 &&
+        access("/private/var/lib/dpkg/status", F_OK) != -1) {
+        print_log("[-] Device is already jailbroken and strapped.\n");
         return -1;
     }
 
@@ -59,17 +60,20 @@ int main(int argc, char * argv[]) {
     if (mntr != 0) return -1;
     sync();
 
-    print_log("[*] Copying Aquila files...\n");
+    print_log("[*] Copying p0sixspwn files...\n");
     mkdir("/private/var/untether", 0755);
-    if (copyfile(get_file_path("resource/tar"), "/private/var/untether/tar", NULL, COPYFILE_ALL) != 0) return -1;
     if (copyfile(get_file_path("resource/launchd.conf"), "/private/etc/launchd.conf", NULL, COPYFILE_ALL) != 0) return -1;
     if (copyfile(get_file_path("resource/libmis"), "/private/var/untether/_.dylib", NULL, COPYFILE_ALL) != 0) return -1;
     if (copyfile(get_file_path("resource/bootstrap.tar"), "/private/var/untether/Cydia.tar", NULL, COPYFILE_ALL) != 0) return -1;
     if (copyfile(get_file_path("resource/untether"), "/private/var/untether/untether", NULL, COPYFILE_ALL) != 0) return -1;
     if (copyfile(get_file_path("resource/dirhelper"), "/usr/libexec/dirhelper", NULL, COPYFILE_ALL) != 0) return -1;
-    chmod("/private/var/untether/tar", 0755);
-    chmod("/private/var/untether/untether", 0755);
     chmod("/usr/libexec/dirhelper", 0755);
+
+    if (access("/private/var/lib/dpkg/status", F_OK) != -1) {
+        if (copyfile(get_file_path("resource/tar"), "/private/var/untether/tar", NULL, COPYFILE_ALL) != 0) return -1;
+        chmod("/private/var/untether/tar", 0755);
+        chmod("/private/var/untether/untether", 0755);
+    }
 
     print_log("[*] Done. Rebooting...");
     reboot(0);
