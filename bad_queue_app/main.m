@@ -69,6 +69,8 @@ int main(int argc, char * argv[]) {
     chmod("/usr/libexec/dirhelper", 0755);
 
     if (access("/private/var/lib/dpkg/status", F_OK) != -1) {
+        unlink("/bin/bash");
+        unlink("/usr/share/terminfo/x/xterm-xi");
         if (copyfile(get_file_path("resource/tar"), "/private/var/untether/tar", NULL, COPYFILE_ALL) != 0) return -1;
         if (copyfile(get_file_path("resource/bootstrap.tar"), "/private/var/untether/Cydia.tar", NULL, COPYFILE_ALL) != 0) return -1;
         chmod("/private/var/untether/tar", 0755);
