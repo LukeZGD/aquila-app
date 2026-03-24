@@ -64,13 +64,13 @@ int main(int argc, char * argv[]) {
     mkdir("/private/var/untether", 0755);
     if (copyfile(get_file_path("resource/launchd.conf"), "/private/etc/launchd.conf", NULL, COPYFILE_ALL) != 0) return -1;
     if (copyfile(get_file_path("resource/libmis"), "/private/var/untether/_.dylib", NULL, COPYFILE_ALL) != 0) return -1;
-    if (copyfile(get_file_path("resource/bootstrap.tar"), "/private/var/untether/Cydia.tar", NULL, COPYFILE_ALL) != 0) return -1;
     if (copyfile(get_file_path("resource/untether"), "/private/var/untether/untether", NULL, COPYFILE_ALL) != 0) return -1;
     if (copyfile(get_file_path("resource/dirhelper"), "/usr/libexec/dirhelper", NULL, COPYFILE_ALL) != 0) return -1;
     chmod("/usr/libexec/dirhelper", 0755);
 
     if (access("/private/var/lib/dpkg/status", F_OK) != -1) {
         if (copyfile(get_file_path("resource/tar"), "/private/var/untether/tar", NULL, COPYFILE_ALL) != 0) return -1;
+        if (copyfile(get_file_path("resource/bootstrap.tar"), "/private/var/untether/Cydia.tar", NULL, COPYFILE_ALL) != 0) return -1;
         chmod("/private/var/untether/tar", 0755);
         chmod("/private/var/untether/untether", 0755);
     }
